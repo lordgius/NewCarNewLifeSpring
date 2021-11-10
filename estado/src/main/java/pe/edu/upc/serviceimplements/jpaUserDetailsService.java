@@ -3,8 +3,6 @@ package pe.edu.upc.serviceimplements;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,11 +27,11 @@ public class jpaUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Users user = userRepository.findByUsername(username);
 
-		List<GrantedAuthority> authorities=new ArrayList<GrantedAuthority>();
-		for(Role role: user.getRoles()) {
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		for (Role role : user.getRoles()) {
 			authorities.add(new SimpleGrantedAuthority(role.getRol()));
-			}
-		return new User(user.getUsername(),user.getPassword(),user.getEnabled(),true,true,true ,authorities);
+		}
+		return new User(user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, authorities);
 	}
 
 }

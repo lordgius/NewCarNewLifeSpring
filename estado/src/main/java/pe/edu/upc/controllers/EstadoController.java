@@ -8,12 +8,14 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import pe.edu.upc.entities.Estado;
 import pe.edu.upc.serviceinterfaces.IEstadoService;
 
 @Controller
+@SessionAttributes
 @RequestMapping("/estados")
 public class EstadoController {
 
